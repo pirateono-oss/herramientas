@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import { isValidLocale, getDictionary } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
-import { RefreshCw, MapPin, Globe, Building2 } from 'lucide-react';
+import { RefreshCw, MapPin, Building2 } from 'lucide-react';
 
 export default function IpLookupPage() {
   const params = useParams();
@@ -11,12 +11,18 @@ export default function IpLookupPage() {
   if (!isValidLocale(locale)) return null;
   const dict = getDictionary(locale as Locale);
 
+  const titles: Record<string, string> = {
+    en: 'What is my IP? - Find Your Public IP Address',
+    es: '¿Cuál es mi IP? - Encuentra tu Dirección IP Pública',
+    pt: 'Qual é o meu IP? - Descubra seu Endereço IP Público',
+  };
+
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [isp, setIsp] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const fetchIp = async () => {
+  const fetchIp = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetch('https://ipapi.co/json/');
@@ -25,7 +31,6 @@ export default function IpLookupPage() {
       setLocation([data.city, data.region, data.country_name].filter(Boolean).join(', '));
       setIsp(data.org || '');
     } catch {
-      // Fallback
       try {
         const res = await fetch('https://api.ipify.org?format=json');
         const data = await res.json();
@@ -35,9 +40,12 @@ export default function IpLookupPage() {
       } catch { setIp('Error'); }
     }
     setLoading(false);
-  };
+  }, []);
 
-  useEffect(() => { fetchIp(); }, []);
+  useEffect(() => {
+    document.title = titles[locale] || titles.en;
+    fetchIp();
+  }, [locale, fetchIp]);
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">

@@ -10,7 +10,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = getDictionary(locale as Locale);
-  return { title: dict.siteTitle, description: dict.siteTagline };
+  const seoDescs: Record<string, { title: string; desc: string }> = {
+    en: { title: dict.siteTitle, desc: 'Free online tools: IP address lookup, password generator, word counter, QR code generator. Simple and free tools for everyday use.' },
+    es: { title: dict.siteTitle, desc: 'Herramientas online gratuitas: consulta de IP, generador de contraseñas, contador de palabras, generador de QR. Herramientas simples y gratis.' },
+    pt: { title: dict.siteTitle, desc: 'Ferramentas online gratuitas: consulta de IP, gerador de senhas, contador de palavras, gerador de QR. Ferramentas simples e grátis.' },
+  };
+  const seo = seoDescs[locale] || seoDescs.en;
+  return { title: seo.title, description: seo.desc, openGraph: { title: seo.title, description: seo.desc } };
 }
 
 export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
