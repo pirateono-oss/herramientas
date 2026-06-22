@@ -11,6 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <head>
+        <meta name="google-site-verification" content="N3g3DnG2PKK-vVpA_1Bxd8PkcJILzL2kaqvQq7_yiMU" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9162356987197971"
