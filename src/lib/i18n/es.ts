@@ -1,0 +1,50 @@
+import type { TranslationDict } from '../types';
+
+export const es: TranslationDict = {
+  siteTitle: 'Herramientas Gratis',
+  siteTagline: 'Herramientas online gratuitas para tu día a día',
+  home: 'Inicio',
+  tools: 'Herramientas',
+  language: 'Idioma',
+  allRightsReserved: 'Todos los derechos reservados.',
+  toolsList: {
+    'ip-lookup': { title: '¿Cuál es mi IP?', desc: 'Descubre tu dirección IP pública y tu ubicación' },
+    'password-generator': { title: 'Generador de Contraseñas', desc: 'Crea contraseñas seguras y aleatorias' },
+    'word-counter': { title: 'Contador de Palabras', desc: 'Cuenta palabras, caracteres y párrafos' },
+    'qr-generator': { title: 'Generador de QR', desc: 'Genera códigos QR personalizados gratis' },
+  },
+  ipLookup: {
+    title: '¿Cuál es mi IP?',
+    yourIp: 'Tu dirección IP',
+    location: 'Ubicación',
+    isp: 'Proveedor',
+    loading: 'Obteniendo tu IP...',
+    error: 'Error al obtener la IP',
+  },
+  passwordGenerator: {
+    title: 'Generador de Contraseñas',
+    length: 'Longitud',
+    includeUppercase: 'Incluir mayúsculas',
+    includeLowercase: 'Incluir minúsculas',
+    includeNumbers: 'Incluir números',
+    includeSymbols: 'Incluir símbolos',
+    generate: 'Generar',
+    copied: '¡Copiado!',
+    copy: 'Copiar',
+  },
+  wordCounter: {
+    title: 'Contador de Palabras',
+    placeholder: 'Escribe o pega tu texto aquí...',
+    words: 'Palabras',
+    characters: 'Caracteres',
+    charactersNoSpaces: 'Caracteres (sin espacios)',
+    sentences: 'Oraciones',
+    paragraphs: 'Párrafos',
+    readingTime: 'Tiempo de lectura',
+  },
+  qrGenerator: {
+    title: 'Generador de QR',
+    placeholder: 'Introduce URL o texto...',
+    download: 'Descargar QR',
+  },
+};

@@ -1,0 +1,50 @@
+import type { TranslationDict } from '../types';
+
+export const en: TranslationDict = {
+  siteTitle: 'Free Tools',
+  siteTagline: 'Free online tools for your daily needs',
+  home: 'Home',
+  tools: 'Tools',
+  language: 'Language',
+  allRightsReserved: 'All rights reserved.',
+  toolsList: {
+    'ip-lookup': { title: 'What is my IP?', desc: 'Find your public IP address and location' },
+    'password-generator': { title: 'Password Generator', desc: 'Create secure random passwords' },
+    'word-counter': { title: 'Word Counter', desc: 'Count words, characters and paragraphs' },
+    'qr-generator': { title: 'QR Generator', desc: 'Generate custom QR codes for free' },
+  },
+  ipLookup: {
+    title: 'What is my IP?',
+    yourIp: 'Your IP Address',
+    location: 'Location',
+    isp: 'ISP',
+    loading: 'Getting your IP...',
+    error: 'Error getting IP',
+  },
+  passwordGenerator: {
+    title: 'Password Generator',
+    length: 'Length',
+    includeUppercase: 'Include uppercase',
+    includeLowercase: 'Include lowercase',
+    includeNumbers: 'Include numbers',
+    includeSymbols: 'Include symbols',
+    generate: 'Generate',
+    copied: 'Copied!',
+    copy: 'Copy',
+  },
+  wordCounter: {
+    title: 'Word Counter',
+    placeholder: 'Type or paste your text here...',
+    words: 'Words',
+    characters: 'Characters',
+    charactersNoSpaces: 'Characters (no spaces)',
+    sentences: 'Sentences',
+    paragraphs: 'Paragraphs',
+    readingTime: 'Reading time',
+  },
+  qrGenerator: {
+    title: 'QR Generator',
+    placeholder: 'Enter URL or text...',
+    download: 'Download QR',
+  },
+};
