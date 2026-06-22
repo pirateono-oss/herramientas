@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import type { Locale, TranslationDict, ToolId } from '@/lib/types';
-import { Wifi, Key, FileText, QrCode } from 'lucide-react';
+import { Wifi, Key, FileText, QrCode, Wrench } from 'lucide-react';
 
 const toolIcons: Record<ToolId, React.ReactNode> = {
   'ip-lookup': <Wifi className="h-8 w-8" />,
