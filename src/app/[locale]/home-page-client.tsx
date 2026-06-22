@@ -18,7 +18,10 @@ export function HomePageClient({ locale, dict }: Props) {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
       <div className="mb-12 text-center">
-        <h1 className="mb-3 text-4xl font-bold text-foreground">{dict.siteTitle}</h1>
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl tool-icon shadow-lg">
+          <Wrench className="h-8 w-8 text-white" />
+        </div>
+        <h1 className="mb-3 text-4xl font-bold text-foreground sm:text-5xl">{dict.siteTitle}</h1>
         <p className="text-lg text-muted-foreground">{dict.siteTagline}</p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2">
@@ -26,9 +29,9 @@ export function HomePageClient({ locale, dict }: Props) {
           <Link
             key={id}
             href={`/${locale}/${id}`}
-            className="group flex items-start gap-4 rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+            className="tool-card group flex items-start gap-4 rounded-xl border border-border bg-card p-6"
           >
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="tool-icon flex h-14 w-14 shrink-0 items-center justify-center rounded-xl shadow-md">
               {toolIcons[id]}
             </div>
             <div>

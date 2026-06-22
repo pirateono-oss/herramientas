@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import type { Locale, TranslationDict } from '@/lib/types';
 import { locales, localeNames } from '@/lib/i18n';
-import { Globe, Menu, X, Wrench } from 'lucide-react';
+import { Globe, Menu, X } from 'lucide-react';
 
 interface HeaderProps { locale: Locale; dict: TranslationDict; }
 
@@ -12,10 +12,11 @@ export function Header({ locale, dict }: HeaderProps) {
   const [langOpen, setLangOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href={`/${locale}`} className="flex items-center gap-2 text-xl font-bold text-primary">
-          <Wrench className="h-6 w-6" /><span className="hidden sm:inline">{dict.siteTitle}</span>
+        <Link href={`/${locale}`} className="flex items-center gap-2 text-lg font-bold text-foreground">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg tool-icon text-sm">🔧</div>
+          <span>{dict.siteTitle}</span>
         </Link>
         <div className="flex items-center gap-2">
           <div className="relative">
