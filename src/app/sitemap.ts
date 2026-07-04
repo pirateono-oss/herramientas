@@ -3,20 +3,17 @@ import type { MetadataRoute } from 'next';
 const locales = ['en', 'es', 'pt'];
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://herramientas-zigq.vercel.app';
 
-const tools = [
-  { slug: 'ip-lookup', en: 'what-is-my-ip', es: 'cual-es-mi-ip', pt: 'qual-e-o-meu-ip' },
-  { slug: 'password-generator', en: 'password-generator', es: 'generador-de-contrasenas', pt: 'gerador-de-senhas' },
-  { slug: 'word-counter', en: 'word-counter', es: 'contador-de-palabras', pt: 'contador-de-palavras' },
-  { slug: 'qr-generator', en: 'qr-code-generator', es: 'generador-de-qr', pt: 'gerador-de-qr' },
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: MetadataRoute.Sitemap = [];
-  for (const locale of locales) {
-    pages.push({ url: `${baseUrl}/${locale}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 });
-    for (const tool of tools) {
-      pages.push({ url: `${baseUrl}/${locale}/${tool.slug}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 });
-    }
-  }
+  const pages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/en`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1.0 },
+    { url: `${baseUrl}/es`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1.0 },
+    { url: `${baseUrl}/pt`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1.0 },
+    { url: `${baseUrl}/en/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+    { url: `${baseUrl}/es/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+    { url: `${baseUrl}/pt/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.5 },
+    { url: `${baseUrl}/en/privacy`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
+    { url: `${baseUrl}/es/privacy`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
+    { url: `${baseUrl}/pt/privacy`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.3 },
+  ];
   return pages;
 }
