@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
   // Redirect to detected locale  
   const url = request.nextUrl.clone();
   url.pathname = `/${detected}${pathname === '/' ? '' : pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
