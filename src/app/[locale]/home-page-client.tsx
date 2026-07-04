@@ -1,13 +1,23 @@
 'use client';
 import Link from 'next/link';
 import type { Locale, TranslationDict, ToolId } from '@/lib/types';
-import { Wifi, Key, FileText, QrCode, Wrench } from 'lucide-react';
+import { Wifi, Key, FileText, QrCode, Wrench, Weight, Calendar, Percent, DollarSign, Ruler, Timer, Dice5, Coins, Palette, TextIcon } from 'lucide-react';
 
 const toolIcons: Record<ToolId, React.ReactNode> = {
   'ip-lookup': <Wifi className="h-8 w-8" />,
   'password-generator': <Key className="h-8 w-8" />,
   'word-counter': <FileText className="h-8 w-8" />,
   'qr-generator': <QrCode className="h-8 w-8" />,
+  'calculadora-de-imc': <Weight className="h-8 w-8" />,
+  'calculadora-de-edad': <Calendar className="h-8 w-8" />,
+  'calculadora-de-porcentaje': <Percent className="h-8 w-8" />,
+  'calculadora-de-propinas': <DollarSign className="h-8 w-8" />,
+  'conversor-de-unidades': <Ruler className="h-8 w-8" />,
+  'cronometro': <Timer className="h-8 w-8" />,
+  'lanzador-de-dados': <Dice5 className="h-8 w-8" />,
+  'lanzar-moneda': <Coins className="h-8 w-8" />,
+  'conversor-de-color': <Palette className="h-8 w-8" />,
+  'convertir-texto': <TextIcon className="h-8 w-8" />,
 };
 
 interface Props { locale: Locale; dict: TranslationDict; }
